@@ -9,15 +9,14 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
         console.log(dataArr);
         dataArr.forEach((post) => {
             const postContainer = document.createElement("div");
-            const id = document.createElement("h3");
-            const userId = document.createElement("h3");
             const title = document.createElement("h1");
             const body = document.createElement("p");
-            id.textContent = `Post ID: ${post.id}`;
-            userId.textContent = `User ID: ${post.userId}`;
             title.textContent =  `Title: ${post.title}`;
             body.textContent = `Text: ${post.body}`;
-            postContainer.append(id, userId, title, body);
+            postContainer.id = "postContainer";
+            title.id = "title";
+            body.id = "blogBody";
+            postContainer.append(title, body);
             postContainer.append(document.createElement("hr"));
             container.append(postContainer);
         });

@@ -1,0 +1,33 @@
+h1, p, body {
+    margin: 0;
+}
+
+header {
+    background-color: aquamarine;
+    margin: 0;
+    padding: 16px;
+    margin: 0 0 16px 0;
+}
+
+#postContainer {
+    margin: 0 24px;
+}
+
+#title, header {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#title {
+    background-color: yellow;
+    margin: 0 0 16px 0;
+}
+
+#blogBody {
+    font-family: Arial, sans-serif;
+    line-height: 1.4em;
+}
+
+hr {
+    margin: 16px 0;
+    border: 1px solid green;
+}
