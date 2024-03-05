@@ -6,14 +6,41 @@ header {
     background-color: aquamarine;
     margin: 0;
     padding: 16px;
+}
+
+#postAction {
+    display: grid;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: aqua;
+}
+
+#postTitle, #postContent {
     margin: 0 0 16px 0;
 }
 
-#postContainer {
-    margin: 0 24px;
+#postTitle {
+    height: 24px;
 }
 
-#title, header {
+#postContent {
+    height: 72px;
+}
+
+#postButton {
+    padding: 12px 6px ;
+}
+
+label {
+    font-weight: bold;
+    margin: 0 0 4px 0;
+}
+
+#postContainer {
+    margin: 0px 24px;
+}
+
+#title, header, label {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 

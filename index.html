@@ -7,12 +7,14 @@
             <section>
                 <h1>BlogSpace</h1>
             </section>
-            <form>
-                <input type="text" placeholder="Title of post" id="postTitle">
-                <input type="text" placeholder="Type your content here..." id="postContent">
-                <button type="button" id="postButton">Post </button>
-            </form>
         </header>
+        <form id="postAction">
+            <label for="postTitle">Title:</label>
+            <input type="text" placeholder="Title of post" id="postTitle">
+            <label for="postContent">Content:</label>
+            <textarea id="postContent"></textarea>
+            <button id="postButton">Post </button>
+        </form>
         <script src="index.js"></script>
     </body>
 </html>
