@@ -1,29 +1,36 @@
-const body = document.body;
+// References
 const postAction = document.getElementById("postAction");
-const container = document.createElement("div");
-container.id = "container";
-body.appendChild(container);
+const container = document.getElementById("posts");
+let postArray = [];
 
+function renderPosts(post) {
+    const postContainer = document.createElement("div");
+    postContainer.id = "postContainer";
+    const title = document.createElement("h1");
+    title.id = "title";
+    title.textContent =  `Title: ${post.title}`;
+    const body = document.createElement("p");
+    body.id = "blogBody";
+    body.textContent = `Text: ${post.body}`;
+    postContainer.append(title, body);
+    postContainer.append(document.createElement("hr"));
+    const recentPost = container.firstChild;
+    container.insertBefore(postContainer, recentPost);
+}
+
+
+// Fetching data from the API to display the first 5 posts
 fetch("https://apis.scrimba.com/jsonplaceholder/posts")
     .then((response) => response.json())
     .then((data) => {
         const dataArr = data.slice(0, 5);
         console.log(dataArr);
         dataArr.forEach((post) => {
-            const postContainer = document.createElement("div");
-            const title = document.createElement("h1");
-            const body = document.createElement("p");
-            title.textContent =  `Title: ${post.title}`;
-            body.textContent = `Text: ${post.body}`;
-            postContainer.id = "postContainer";
-            title.id = "title";
-            body.id = "blogBody";
-            postContainer.append(title, body);
-            postContainer.append(document.createElement("hr"));
-            container.append(postContainer);
+            renderPosts(post);
         });
     });
 
+// Adding a new post and calling the API to post the new data
 postAction.addEventListener("submit", (event) => {
     event.preventDefault();
     const title = document.getElementById("postTitle");
@@ -42,19 +49,7 @@ postAction.addEventListener("submit", (event) => {
     fetch("https://apis.scrimba.com/jsonplaceholder/posts", options)
         .then((response) => response.json())
         .then((data) => {
-            const postContainer = document.createElement("div");
-            postContainer.id = "postContainer";
-            const title = document.createElement("h1");
-            const body = document.createElement("p");
-            const bigContainer = document.getElementById("container");
-            title.textContent =  `Title: ${post.title}`;
-            body.textContent = `Text: ${post.body}`;
-            title.id = "title";
-            body.id = "blogBody";
-            postContainer.append(title, body);
-            postContainer.append(document.createElement("hr"));
-            const recentPost = bigContainer.firstChild;
-            bigContainer.insertBefore(postContainer, recentPost);
+            renderPosts(post);
         });
     title.value = "";
     content.value = "";
