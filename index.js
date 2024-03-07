@@ -51,6 +51,5 @@ postAction.addEventListener("submit", (event) => {
         .then((data) => {
             renderPosts(post);
         });
-    title.value = "";
-    content.value = "";
+    postAction.reset();
 });
